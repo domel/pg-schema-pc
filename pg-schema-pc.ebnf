@@ -1,0 +1,55 @@
+pgs      ::= ( createType ";"? )+ EOF
+createType
+         ::= createNodeType
+           | createEdgeType
+           | createGraphType
+createNodeType
+         ::= CREATE SP NODE SP TYPE SP nodeType
+createEdgeType
+         ::= CREATE SP EDGE SP TYPE SP edgeType
+createGraphType
+         ::= CREATE SP GRAPH SP TYPE SP graphType
+graphType
+         ::= typeName STRICT? "{" elementTypes? "}"
+elementTypes
+         ::= elementType ( "," elementType )*
+elementType
+         ::= typeName
+           | nodeType
+           | edgeType
+nodeType ::= "(" typeName labelPropertySpec ")"
+edgeType ::= endpointType "-[" typeName labelPropertySpec "]->" endpointType
+endpointType
+         ::= "(" labelPropertySpec ")"
+labelPropertySpec
+         ::= ( ":" labelSpec )? OPEN? propertySpec?
+labelSpec
+         ::= "(" labelSpec ")"
+           | "[" labelSpec "]"
+           | labelSpec ( ( "|" | "&" ) labelSpec | "?" )
+           | labelName
+           | typeName
+propertySpec
+         ::= "{" ( properties ( "," OPEN )? | OPEN )? "}"
+properties
+         ::= property ( "," property )*
+property ::= key propertyType card
+propertyType
+         ::= ( typesSpec | ANY ) ( CHECK cond ) ?
+typesSpec ::= typeSpec (("|" | "&") typeSpec ) *
+typeSpec  ::= simpleType 
+          | "[" value ("," value) * "]"
+value ::= Literal
+card ::= "?" | "+" | "*" | "{" number "," max "}"
+max ::= number | "*"
+cond ::= booleanExpr ("||" | "&&" booleanExpr) *
+     | NOT booleanExpr
+     | true
+     | false
+booleanExpr ::= ">" expr | "<" expr | ...
+            | REGEX StringLiteral
+            | ...
+key      ::= StringLiteral
+labelName
+         ::= StringLiteral
+typeName ::= StringLiteral
