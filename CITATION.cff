@@ -1,0 +1,51 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: PG-Schema for Property Constraints
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Dominik
+    family-names: Tomaszuk
+    email: d.tomaszuk@uwb.edu.pl
+    affiliation: University of Bialystok
+    orcid: 'https://orcid.org/0000-0003-1806-067X'
+  - given-names: Jose Emilio
+    family-names: Labra Gayo
+    email: labra@uniovi.es
+    affiliation: University of Oviedo
+    orcid: 'https://orcid.org/0000-0001-8907-5348'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.16729164
+    description: PG-Schema-PC
+repository-code: 'https://github.com/domel/pg-schema-pc'
+url: 'https://domel.github.io/pg-schema-pc/rr-diagrams.html'
+abstract: >-
+  The PG-Schema for Property Constraints (PG-Schema-PC)
+  defines a formal grammar and visual representation for
+  specifying structural constraints in property graph data
+  models. As property graphs are widely used to represent
+  richly annotated and interconnected data, the lack of
+  expressive schema constraints often undermines data
+  quality. PG-Schema-PC extends the original PG-Schema
+  formalism by introducing constructs for expressing
+  alternative property groupings, multiplicity constraints,
+  and value-level conditions. This repository includes the
+  abstract grammar defined in EBNF and visualized through
+  railroad diagrams to facilitate understanding and
+  adoption. The grammar aims to support schema designers in
+  modeling, validating, and maintaining consistent property
+  graph structures.
+keywords:
+  - PG-Schema
+  - Property Graphs
+  - Schemas
+  - Property Constraints
+  - Graph Databases
+license: MIT
+version: '0.1'
+date-released: '2025-08-03'
